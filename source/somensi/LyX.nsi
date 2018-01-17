@@ -64,9 +64,10 @@ Section
     System::Call 'kernel32::SetEnvironmentVariable(t, t) i("TEXMFMAIN", "")'
     System::Call 'kernel32::SetEnvironmentVariable(t, t) i("TEXMFDIST", "")'
     System::Call 'kernel32::SetEnvironmentVariable(t, t) i("TEXMF", "")'
-    System::Call 'kernel32::SetEnvironmentVariable(t, t) i("FONTCONFIG_FILE", "")'
-    System::Call 'kernel32::SetEnvironmentVariable(t, t) i("FONTCONFIG_PATH", "")'
-    System::Call 'kernel32::SetEnvironmentVariable(t, t) i("FC_CACHEDIR", "")'
+    # 3 lines below refer to : http://bbs.ctex.org/forum.php?mod=viewthread&tid=50509
+    #System::Call 'kernel32::SetEnvironmentVariable(t, t) i("FONTCONFIG_FILE", "fonts.conf")'
+    #System::Call 'kernel32::SetEnvironmentVariable(t, t) i("FONTCONFIG_PATH", "$EXEDIR\MiKTeX\texmf-local\fontconfig\config")'
+    #System::Call 'kernel32::SetEnvironmentVariable(t, t) i("FC_CACHEDIR", "$EXEDIR\MiKTeX\texmf-local\fontconfig\cache")'
     ;ReadEnvStr $R0 "TEXMFCNF"
     ;MessageBox MB_OK $R0
     
@@ -75,13 +76,6 @@ Section
     StrCpy $R0 "$TEXBIN;$EXEDIR\LyX\ghostscript;$EXEDIR\LyX\python;$EXEDIR\LyX\imagemagick;$R0"
     System::Call 'kernel32::SetEnvironmentVariable(t, t) i("Path", R0)'
     ;ReadEnvStr $R1 "PATH"
-    ;MessageBox MB_OK $R1
-
-    # set ghostscript path, epstopdf.bat and epstopng.bat need it
-    ;; since lyx 1.6.3, all files are compiled into a single gsdll32.dll file
-    ;System::Call 'kernel32::SetEnvironmentVariable(t, t) i("GS_LIB", "$EXEDIR\LyX\ghostscript\lib;$EXEDIR\LyX\ghostscript\fonts;")'
-    ;System::Call 'kernel32::SetEnvironmentVariable(t, t) i("GS_DLL", "$EXEDIR\LyX\ghostscript\bin\gsdll32.dll;")'
-    ;ReadEnvStr $R1 "GS_LIB"
     ;MessageBox MB_OK $R1
 
     # set aspell path
@@ -129,11 +123,11 @@ Section
     FileOpen $0 "$EXEDIR\LyX\local\preferences" a
     IfErrors 0 +2
     MessageBox MB_OK "Error while creating file $EXEDIR\LyX\local\preferences!"
-    FileWrite $0 "\path_prefix $\"$EXEDIR\LyX\bin;$TEXBIN;$EXEDIR\LyX\python;$EXEDIR\LyX\Python\Lib;$EXEDIR\LyX\Perl\bin;$EXEDIR\LyX\imagemagick;$EXEDIR\LyX\ghostscript\bin$\"$\r$\n"
-    FileWrite $0 "\format $\"pdf4$\" $\"pdf$\" $\"PDF (xelatex)$\"  $\"$\"   $\"$\"   $\"$\"   $\"document,vector$\"$\r$\n"
-    FileWrite $0 "\converter $\"pdflatex$\" $\"pdf4$\" $\"xelatex $$$$i$\" $\"latex$\"$\r$\n"
+    FileWrite $0 "\path_prefix $\"$EXEDIR\LyX\bin;$TEXBIN;$EXEDIR\LyX\python;$EXEDIR\LyX\Python\Lib;$EXEDIR\LyX\imagemagick;$EXEDIR\LyX\ghostscript\bin$\"$\r$\n"
+    #FileWrite $0 "\format $\"pdf4$\" $\"pdf$\" $\"PDF (XeLaTex)$\"  $\"$\"   $\"$\"   $\"$\"   $\"document,vector$\"$\r$\n"
+    #FileWrite $0 "\converter $\"pdflatex$\" $\"pdf4$\" $\"xelatex $$$$i$\" $\"latex$\"$\r$\n"
     # Added in LyTeX 1.6gamma for simpler convert
-    FileWrite $0 '\converter "eps" "png" "epstopng.bat $$$$i" ""$\r$\n'
+    #FileWrite $0 '\converter "eps" "png" "epstopng.bat $$$$i" ""$\r$\n'
     FileClose $0
     Goto runit
     done2:
@@ -224,15 +218,15 @@ Section
         Goto loop
     next:
     ;MessageBox MB_OK $FORMAT4,$XELATEX,$EPS2PNG
-    ${If} "$FORMAT4" == "0"
-        FileWrite $1 '\format "pdf4" "pdf" "PDF (xelatex)" "" "" "" "document,vector"$\r$\n'
-    ${EndIf}
-    ${If} "$XELATEX" == "0"
-        FileWrite $1 '\converter "pdflatex" "pdf4" "xelatex $$$$i" "latex"$\r$\n'
-    ${EndIf}
-    ${If} "$EPS2PNG" == "0"
-        FileWrite $1 '\converter "eps" "png" "epstopng.bat $$$$i" ""$\r$\n'
-    ${EndIf}
+    #${If} "$FORMAT4" == "0"
+    #    FileWrite $1 '\format "pdf4" "pdf" "PDF (XeLaTex)" "" "" "" "document,vector"$\r$\n'
+    #${EndIf}
+    #${If} "$XELATEX" == "0"
+    #    FileWrite $1 '\converter "pdflatex" "pdf4" "xelatex $$$$i" "latex"$\r$\n'
+    #${EndIf}
+    #${If} "$EPS2PNG" == "0"
+    #    FileWrite $1 '\converter "eps" "png" "epstopng.bat $$$$i" ""$\r$\n'
+    #${EndIf}
     FileClose $0
     FileClose $1
     
@@ -243,48 +237,6 @@ Section
     
     runit:
     
-/*  Depleted since version 1.6g
-
-    # append, will create an empty one if file not exist
-    FileOpen $R0 "$EXEDIR\LyX\lyx.usb" a
-    IfErrors 0 +2
-        MessageBox MB_OK "Error while opening file $EXEDIR\LyX\lyx.usb!"
-    FileRead $R0 $1
-    IfErrors 0 +2
-        MessageBox MB_OK "Error while reading file $EXEDIR\LyX\lyx.usb!"
-    FileClose $R0
-    ;MessageBox MB_OK "$1 = $EXEDIR"
-
-    ${If} $1 == $EXEDIR
-    Goto done2
-    ${Else}
-    Goto doit2
-    ${EndIf}
-    
-    doit2:
-    # write, all contents of file are destroyed
-    FileOpen $0 "$EXEDIR\LyX\lyx.usb" w
-    FileWrite $0 "$EXEDIR"
-    FileClose $0
-    
-    ClearErrors
-    # append, will create an empty one if file does not exist
-    FileOpen $0 "$EXEDIR\LyX\local\preferences" a
-    FileClose $0
-    FileOpen $0 "$EXEDIR\LyX\local\preferences" w
-    IfErrors 0 +2
-    MessageBox MB_OK "Error while opening file $EXEDIR\LyX\local\preferences!"
-    ## FileSeek $0 0 END
-    FileWrite $0 "\path_prefix $\"$EXEDIR\LyX\bin;$TEXBIN;$EXEDIR\LyX\python;$EXEDIR\LyX\Python\Lib;$EXEDIR\LyX\Perl\bin;$EXEDIR\LyX\imagemagick;$EXEDIR\LyX\ghostscript\bin$\"$\r$\n"
-    FileWrite $0 "\format $\"pdf4$\" $\"pdf$\" $\"PDF (xelatex)$\"  $\"$\"   $\"$\"   $\"$\"   $\"document,vector$\"$\r$\n"
-    FileWrite $0 "\converter $\"pdflatex$\" $\"pdf4$\" $\"xelatex $$$$i$\" $\"latex$\"$\r$\n"
-    # Added in LyTeX 1.6gamma for simpler convert
-    FileWrite $0 '\converter "eps" "png" "epstopng.bat $$$$i" ""$\r$\n'
-    ; I decided to use the new epstopdf.bat within TeXLive at last
-    ;FileWrite $0 '\converter "eps" "pdf" "epstopdf.bat $$$$i" ""$\r$\n'
-    FileClose $0
-    done2:
-*/
     ####################################################
     
     #MessageBox MB_OK $EXEDIR

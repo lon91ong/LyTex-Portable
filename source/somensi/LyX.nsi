@@ -101,9 +101,9 @@ Section
 
 /*  When using this, there is a strange error while reading lyx.usb file! ??
     ${If} $LANGUAGE == "2052"
-    ;${orIf} $LANGUAGE == "1028" ; Ò²Ğí»áÂÒÂë
+    ;${orIf} $LANGUAGE == "1028" ; ä¹Ÿè®¸ä¼šä¹±ç 
     IfFileExists "$EXEDIR\LyX\lyx.usb" +4 0
-    MessageBox MB_YESNO "ÌáÊ¾£ºÊÇ·ñĞèÒªÔÄ¶Á LyTeX °ïÖúÎÄµµ£¿" IDYES true IDNO next
+    MessageBox MB_YESNO "æç¤ºï¼šæ˜¯å¦éœ€è¦é˜…è¯» LyTeX å¸®åŠ©æ–‡æ¡£ï¼Ÿ" IDYES true IDNO next
     true:
     ExecShell "open" "$EXEDIR\Other\chinese\lytex.pdf"
     next:

@@ -33,6 +33,7 @@ xcopy /e/i/y %~dp0LyTeX\LyX\Python %~dp0LyTeX\LyX\Python
 ::rmdir /s /q %~dp0LyTeX\LyX\$_OUTDIR
 rmdir /s /q %~dp0LyTeX\LyX\$PLUGINSDIR
 rmdir /s /q %~dp0LyTeX\LyX\$_1_
+::rmdir /s /q %~dp0LyTeX\LyX\Perl
 ::::rmdir /s /q %~dp0LyTeX\LyX\aiksaurus\$PLUGINSDIR
 
 ::::copy %~dp0LyTeX\LyX\bin\Microsoft.VC90.CRT.manifest %~dp0LyTeX\LyX\ghostscript

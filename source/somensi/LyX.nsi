@@ -73,7 +73,7 @@ Section
     
     # set path variable
     ReadEnvStr $R0 "PATH"
-    StrCpy $R0 "$TEXBIN;$EXEDIR\LyX\ghostscript;$EXEDIR\LyX\python;$EXEDIR\LyX\imagemagick;$R0"
+    StrCpy $R0 "$TEXBIN;$EXEDIR\LyX\ghostscript;$EXEDIR\LyX\python;$EXEDIR\LyX\Perl;$EXEDIR\LyX\imagemagick;$R0"
     System::Call 'kernel32::SetEnvironmentVariable(t, t) i("Path", R0)'
     ;ReadEnvStr $R1 "PATH"
     ;MessageBox MB_OK $R1
@@ -123,7 +123,7 @@ Section
     FileOpen $0 "$EXEDIR\LyX\local\preferences" a
     IfErrors 0 +2
     MessageBox MB_OK "Error while creating file $EXEDIR\LyX\local\preferences!"
-    FileWrite $0 "\path_prefix $\"$EXEDIR\LyX\bin;$TEXBIN;$EXEDIR\LyX\python;$EXEDIR\LyX\Python\Lib;$EXEDIR\LyX\imagemagick;$EXEDIR\LyX\ghostscript\bin$\"$\r$\n"
+    FileWrite $0 "\path_prefix $\"$EXEDIR\LyX\bin;$TEXBIN;$EXEDIR\LyX\python;$EXEDIR\LyX\Python\Lib;$EXEDIR\LyX\Perl\bin;$EXEDIR\LyX\imagemagick;$EXEDIR\LyX\ghostscript\bin$\"$\r$\n"
     #FileWrite $0 "\format $\"pdf4$\" $\"pdf$\" $\"PDF (XeLaTex)$\"  $\"$\"   $\"$\"   $\"$\"   $\"document,vector$\"$\r$\n"
     #FileWrite $0 "\converter $\"pdflatex$\" $\"pdf4$\" $\"xelatex $$$$i$\" $\"latex$\"$\r$\n"
     # Added in LyTeX 1.6gamma for simpler convert
@@ -239,10 +239,7 @@ Section
     
     ####################################################
     
-    #MessageBox MB_OK $EXEDIR
-    #Exec 'cmd /c set LYX_USERDIR_16x=$EXEDIR\LyX16\local && $EXEDIR\LyX16\bin\LyXLauncher.exe'
-
-    # run lyx launcher
+    # run lyx
     ${GetParameters} $1
     IfFileExists "$EXEDIR\LyX\bin\LyX.exe" 0 +3
     Exec '"$EXEDIR\LyX\bin\LyX.exe" $1'

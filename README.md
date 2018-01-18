@@ -1,25 +1,25 @@
 # LyTex-Portable
 
-Ô­×÷µØÖ·£º[Google Code](https://code.google.com/archive/p/lytex/) 
+åŸä½œåœ°å€ï¼š[Google Code](https://code.google.com/archive/p/lytex/) 
 
-Ô­×÷·¢²¼ÔÚ£º[LyTeXÂÌÉ«Ì××°](http://bbs.ctex.org/forum.php?mod=viewthread&tid=46857)
+åŸä½œå‘å¸ƒåœ¨ï¼š[LyTeXç»¿è‰²å¥—è£…](http://bbs.ctex.org/forum.php?mod=viewthread&tid=46857)
 
-Ô­×÷ÕßºÜ¾ÃºÜ¾Ã¶¼Ã»ÓĞ¸üĞÂÁË£¬ÎÒµ±Äê£¨2015£©Ğ´ÑĞ¾¿Éú±ÏÒµÂÛÎÄ¾ÍÓÃµÄÕâ¸ö£¬Ïà¶ÔÓÚÆäËûµÄLaTeX°²×°·½·¨£¬Õâ¸ö¹»¼òµ¥ÊµÓÃµÄ£¬ÍÆ¼öÈëÃÅµÄÍ¬Ñ§Ê¹ÓÃ¡£
+åŸä½œè€…å¾ˆä¹…å¾ˆä¹…éƒ½æ²¡æœ‰æ›´æ–°äº†ï¼Œæˆ‘å½“å¹´ï¼ˆ2015ï¼‰å†™ç ”ç©¶ç”Ÿæ¯•ä¸šè®ºæ–‡å°±ç”¨çš„è¿™ä¸ªï¼Œç›¸å¯¹äºå…¶ä»–çš„LaTeXå®‰è£…æ–¹æ³•ï¼Œè¿™ä¸ªå¤Ÿç®€å•å®ç”¨çš„ï¼Œæ¨èå…¥é—¨çš„åŒå­¦ä½¿ç”¨ã€‚
 
-ÎÒ×öµÄ¸Ä¶¯£º¸üĞÂLyXÖÁ2.2.3£¬MikTexÖÁ2.9.6521£¬TeXWorksÖÁ0.6.2
+æˆ‘åšçš„æ”¹åŠ¨ï¼šæ›´æ–°LyXè‡³2.2.3ï¼ŒMikTexè‡³2.9.6521ï¼ŒTeXWorksè‡³0.6.2
 
 ![](http://upload-images.jianshu.io/upload_images/3071283-d053fe6a79e55125.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-¼òµ¥²âÊÔÁËÒ»ÏÂ£¬Ã»·¢ÏÖÊ²Ã´ÎÊÌâ£¬»¶Ó­²âÊÔ·´À¡£¡
+ç®€å•æµ‹è¯•äº†ä¸€ä¸‹ï¼Œæ²¡å‘ç°ä»€ä¹ˆé—®é¢˜ï¼Œæ¬¢è¿æµ‹è¯•åé¦ˆï¼
 
-[Release´ò°üÔÚ¶ÈÅÌ](https://pan.baidu.com/s/1dioCm6)
+[Releaseæ‰“åŒ…åœ¨åº¦ç›˜](https://pan.baidu.com/s/1c37Tgf2)
 
-![LyX¼ò½é](http://upload-images.jianshu.io/upload_images/3071283-b99659b06ac683f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![LyXç®€ä»‹](http://upload-images.jianshu.io/upload_images/3071283-b99659b06ac683f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-·ÖÏí¼ÇÂ¼Ò»¸öLaTeXµÄÑ§Ï°ÍøÕ¾£º[LaTeX Studio](http://wenda.latexstudio.net/)
+åˆ†äº«è®°å½•ä¸€ä¸ªLaTeXçš„å­¦ä¹ ç½‘ç«™ï¼š[LaTeX Studio](http://wenda.latexstudio.net/)
 
-#####²¹³äÁ½ÌõÓĞ²Î¿¼¼ÛÖµµÄLyXÖĞÎÄ±Ê¼Ç£º
+#####è¡¥å……ä¸¤æ¡æœ‰å‚è€ƒä»·å€¼çš„LyXä¸­æ–‡ç¬”è®°ï¼š
 
-[ÔÚ LyX ÖĞÊ¹ÓÃÖĞÎÄ - Yihui Xie | Ğ»Òæ»Ô](https://yihui.name/cn/2011/05/write-chinese-in-lyx/)
+[åœ¨ LyX ä¸­ä½¿ç”¨ä¸­æ–‡ - Yihui Xie | è°¢ç›Šè¾‰](https://yihui.name/cn/2011/05/write-chinese-in-lyx/)
 
-[LaTeXÖĞÎÄÅÅ°æ£¨Ê¹ÓÃXeTeX£©](http://linux-wiki.cn/wiki/zh-hans/LaTeXÖĞÎÄÅÅ°æ£¨Ê¹ÓÃXeTeX£©)
+[LaTeXä¸­æ–‡æ’ç‰ˆï¼ˆä½¿ç”¨XeTeXï¼‰](http://linux-wiki.cn/wiki/zh-hans/LaTeXä¸­æ–‡æ’ç‰ˆï¼ˆä½¿ç”¨XeTeXï¼‰)

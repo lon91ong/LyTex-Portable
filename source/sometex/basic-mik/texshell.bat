@@ -19,15 +19,15 @@ set FONTCONFIG_FILE=
 set FONTCONFIG_PATH=
 set FC_CACHEDIR=
 
-set TEXBINDIR=%TEXDIR%texmf\miktex\bin
+set TEXBINDIR=%TEXDIR%texmfs\miktex\bin
 set platform=win32
 if "%1" equ "texmgr" (
-start "title" "%~dp0texmf\miktex\bin\mpm_mfc.exe"
+start "title" "%~dp0texmfs\miktex\bin\mpm_mfc.exe"
 exit
 )
 
 :: start texshell
-set Path=%~dp0texmf\miktex\bin;%Path%
+set Path=%~dp0texmfs\miktex\bin;%Path%
 texhash
 
 if exist "%USERPROFILE%\My Documents\texdoc" (

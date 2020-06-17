@@ -39,5 +39,4 @@ if exist "%USERPROFILE%\My Documents\texdoc" (
     for %%i in (*.synctex) do del %%i
     )
 call cmd
-
 :pause

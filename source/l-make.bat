@@ -181,9 +181,9 @@ xcopy /e/i/y %~dp0texworks\TUG %texdir%\texmf-local\TUG
 
 echo.
 echo Updating MiKTeX...
-rem ÃüÁîÐÐ¸üÐÂÈÝÒ×³öÎÊÌâ£¬»¹ÊÇÓÃ %texdir%\miktex-portable.cmd ÔÚGUIÄ£Ê½¸üÐÂ¸üÎÈÍ×
+rem å‘½ä»¤è¡Œæ›´æ–°å®¹æ˜“å‡ºé—®é¢˜ï¼Œè¿˜æ˜¯ç”¨ %texdir%\miktex-portable.cmd åœ¨GUIæ¨¡å¼æ›´æ–°æ›´ç¨³å¦¥
 call %texdir%\miktex-portable.cmd
-echo Update in GUI mode£¬then press any key to continue...
+echo Update in GUI modeï¼Œthen press any key to continue...
 pause >nul
 ::%texdir%\texmfs\miktex\bin\mpm.exe --verbose --update
 ::%texdir%\texmfs\miktex\bin\mpm.exe --verbose --install-some=somedef\miktex.def
@@ -356,5 +356,4 @@ goto makeend
 echo All are done!
 
 pause
-
 

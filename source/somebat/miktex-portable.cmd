@@ -1,2 +1,2 @@
 @echo off
-start "" "%~dp0texmfs\miktex\bin\miktex-taskbar-icon.exe"
+start "" "%~dp0texmfs\miktex\bin\mpm.exe"

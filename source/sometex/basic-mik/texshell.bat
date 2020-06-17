@@ -22,7 +22,7 @@ set FC_CACHEDIR=
 set TEXBINDIR=%TEXDIR%texmfs\miktex\bin
 set platform=win32
 if "%1" equ "texmgr" (
-start "title" "%~dp0texmfs\miktex\bin\mpm_mfc.exe"
+start "title" "%~dp0texmfs\miktex\bin\mpm.exe"
 exit
 )
 

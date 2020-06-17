@@ -7,9 +7,9 @@ set Path=%~dp0somebin;%Path%
 ::==================== LyX ========================
 :downlyx
 
-set lyxver=2.2.3
+set lyxver=2.3.5
 set lyxpath=ftp://ftp.lyx.org/pub/lyx/bin/%lyxver%
-set lyxname=LyX-%lyxver:.=%-Installer-2.exe
+set lyxname=LyX-%lyxver:.=%1-Installer-3.exe
 
 echo.
 echo Downloading LyX installer...
@@ -23,7 +23,7 @@ if "%buildtex%"=="texlive" ( goto downlive ) else ( goto downmik )
 ::==================== MiKTeX ========================
 :downmik
 
-set mknet=http://mirrors.mi.ras.ru/CTAN/systems/win32/miktex/setup
+set mknet=http://mirrors.mi.ras.ru/CTAN/systems/win32/miktex/setup/windows-x86/
 ::set mkbin=miktex-portable-2.9.6521.exe
 set mkbin=miktex-portable.exe
 
@@ -43,7 +43,8 @@ goto downend
 :downlive
 
 ::set tlnet=ftp://ftp.ctex.org/mirrors/CTAN/systems/texlive/tlnet/archive
-set tlnet=http://ftp.jaist.ac.jp/pub/CTAN/systems/texlive/tlnet/archive/
+rem set tlnet=http://ftp.jaist.ac.jp/pub/CTAN/systems/texlive/tlnet/archive/
+set tlnet=https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet/
 
 setlocal enabledelayedexpansion
 
@@ -85,5 +86,3 @@ goto downend
 :downend
 
 pause
-
-

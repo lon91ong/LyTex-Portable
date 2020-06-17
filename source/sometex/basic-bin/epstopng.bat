@@ -27,7 +27,7 @@ cd %curdir%
 
 cd ..\..\..
 
-set MIKTEX_GS_LIB=%cd%\texmf\ghostscript\base;%cd%\texmf\fonts
+set MIKTEX_GS_LIB=%cd%\texmfs\ghostscript\base;%cd%\texmfs\fonts
 ::echo %gs_lib%
 
 echo Converting %~nx1 to %~n1.png

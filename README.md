@@ -23,3 +23,11 @@
 [在 LyX 中使用中文 - Yihui Xie | 谢益辉](https://yihui.name/cn/2011/05/write-chinese-in-lyx/)
 
 [LaTeX中文排版（使用XeTeX）](http://linux-wiki.cn/wiki/zh-hans/LaTeX中文排版（使用XeTeX）)
+
+#### 更新备忘
+
+[MiKTeX](https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/win32/miktex/setup/windows-x86/)清华源，下载`miktex-portable.exe`
+
+运行lytex.bat ... 
+提示`Extract failed! Manually operate，then press any key to continue...`
+7Zip无法解压`miktex-portable.exe`，需要手动操作，直接运行释放到`source\LyTeX\MiKTeX`下，将`texmfs`下除了`install`目录外其它的删掉，把`install`下的所有放上级目录`texmfs`中，删除`install`目录, `then press any key to continue...`

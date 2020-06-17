@@ -10,8 +10,8 @@ if not exist %~dp0LyTeX mkdir %~dp0LyTeX
 ::==================== LyX ========================
 :makelyx
 
-set lyxver=2.2.3
-set lyxname=LyX-%lyxver:.=%-Installer-2.exe
+set lyxver=2.3.5
+set lyxname=LyX-%lyxver:.=%1-Installer-3.exe
 
 :lyxinst
 
@@ -146,14 +146,13 @@ echo Extracting MiKTeX...
 if not exist %~dp0LyTeX\MiKTeX\texmfs md %~dp0LyTeX\MiKTeX\texmfs
 
 ::7z x -y -o%~dp0LyTeX\MiKTeX\texmfs %downdir%\%mkbin%
-7z x -y -o%~dp0LyTeX\MiKTeX %downdir%\%mkbin%
-move /y %~dp0LyTeX\MiKTeX\texmfs\install %~dp0LyTeX\MiKTeX
-rmdir /s /q %~dp0LyTeX\MiKTeX\texmfs
-ren %~dp0LyTeX\MiKTeX\install texmfs
-
+::7z x -y -o%~dp0LyTeX\MiKTeX %downdir%\%mkbin%
+echo Extract failed! Manually operate，then press any key to continue...
+rem move /y %~dp0LyTeX\MiKTeX\texmfs\install %~dp0LyTeX\MiKTeX
+rem rmdir /s /q %~dp0LyTeX\MiKTeX\texmfs
+rem ren %~dp0LyTeX\MiKTeX\install texmfs
+pause
 copy /y %~dp0somebat\miktex-portable.cmd %~dp0LyTeX\MiKTeX
-
-::pause
 
 xcopy /e/i/y sometex\basic-mik %texdir%
 move /y %texdir%\About.htm %~dp0LyTeX
@@ -356,4 +355,3 @@ goto makeend
 echo All are done!
 
 pause
-

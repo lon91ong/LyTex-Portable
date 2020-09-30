@@ -75,4 +75,7 @@
 
 **LyX更新**
 [LyX清华源](https://mirrors.tuna.tsinghua.edu.cn/lyx/bin/)下载最新版放入目录`LyTeX\Common\download`下,再用`Setup.exe`的选项更新即可。
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2dc4eb2bb913a01d9037bdc5711c92a63521d7ac

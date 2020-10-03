@@ -6,7 +6,7 @@ OutFile "..\LyTeX-2.3a-bin.exe"
 VIProductVersion "2.0.1.0"
 VIAddVersionKey  "FileDescription" "LyTeX: Portable TeX Suite"
 VIAddVersionKey  "LegalCopyright" "zoho@bbs.ctex.org"
-VIAddVersionKey  "FileVersion" "2.2alpha"
+VIAddVersionKey  "FileVersion" "2.3alpha"
 
 !include "LogicLib.nsh"
 
@@ -32,23 +32,23 @@ Page directory
 Page instfiles
 
 LangString SubCaption2 ${LANG_ENGLISH} " - Extraction Folder"
-LangString SubCaption2 ${LANG_SIMPCHINESE} " - é€‰æ‹©è§£å‹ç›®å½•"
+LangString SubCaption2 ${LANG_SIMPCHINESE} " - Ñ¡Ôñ½âÑ¹Ä¿Â¼"
 SubCaption 2 $(SubCaption2)
 
 LangString DirText1 ${LANG_ENGLISH} "LyTeX will extract to the following folder. To extract it to a different folder, click Browse and select another folder. Click Extract to start the extraction."
-LangString DirText1 ${LANG_SIMPCHINESE} "LyTeX å°†è¢«è§£å‹åˆ°ä¸‹åˆ—æ–‡ä»¶å¤¹. è‹¥éœ€è¦è§£å‹å®ƒåˆ°ä¸åŒçš„æ–‡ä»¶å¤¹, è¯·ç‚¹å‡»â€œæµè§ˆâ€ä»¥é€‰æ‹©å…¶å®ƒæ–‡ä»¶å¤¹."
+LangString DirText1 ${LANG_SIMPCHINESE} "LyTeX ½«±»½âÑ¹µ½ÏÂÁĞÎÄ¼ş¼Ğ. ÈôĞèÒª½âÑ¹Ëüµ½²»Í¬µÄÎÄ¼ş¼Ğ, Çëµã»÷¡°ä¯ÀÀ¡±ÒÔÑ¡ÔñÆäËüÎÄ¼ş¼Ğ."
 LangString DirText4 ${LANG_ENGLISH} "Select the folder to extract LyTeX:"
-LangString DirText4 ${LANG_SIMPCHINESE} "è¯·é€‰æ‹©è¦è§£å‹ LyTeX çš„æ–‡ä»¶å¤¹ä½ç½®:"
+LangString DirText4 ${LANG_SIMPCHINESE} "ÇëÑ¡ÔñÒª½âÑ¹ LyTeX µÄÎÄ¼ş¼ĞÎ»ÖÃ:"
 DirText $(DirText1) "" "" $(DirText4)
 
 LangString InstallButtonText ${LANG_ENGLISH} "&Extract"
-LangString InstallButtonText ${LANG_SIMPCHINESE} "è§£å‹(&E)"
+LangString InstallButtonText ${LANG_SIMPCHINESE} "½âÑ¹(&E)"
 InstallButtonText $(InstallButtonText)
 
 BrandingText "zoho@ctex.org"
 
 LangString SubCaption3 ${LANG_ENGLISH} " - Extracting Files"
-LangString SubCaption3 ${LANG_SIMPCHINESE} " - æ­£åœ¨è§£å‹æ–‡ä»¶"
+LangString SubCaption3 ${LANG_SIMPCHINESE} " - ÕıÔÚ½âÑ¹ÎÄ¼ş"
 SubCaption 3 $(SubCaption3)
 
 ShowInstDetails show

@@ -74,6 +74,7 @@ rmdir /s /q %lyxdir%\imagemagick
 rmdir /s /q %lyxdir%\local
 rmdir /s /q %lyxdir%\Python
 rmdir /s /q %lyxdir%\Resources
+del /q %lyxdir%\lyx.usb
 
 echo Moving new LyX files to LyX directory...
 echo.
@@ -87,6 +88,9 @@ move /y %downdir%\LyX\Python %lytexdir%\LyX
 move /y %downdir%\LyX\Resources %lytexdir%\LyX
 
 rmdir /s /q %downdir%\LyX
+
+:: Save new version number
+>lyxver.usb echo %lyxname:~4,1%.%lyxname:~5,1%.%lyxname:~6,1%
 
 :theEnd
 

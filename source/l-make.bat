@@ -10,8 +10,8 @@ if not exist %~dp0LyTeX mkdir %~dp0LyTeX
 ::==================== LyX ========================
 :makelyx
 
-set lyxver=2.3.5
-set lyxname=LyX-%lyxver:.=%1-Installer-3.exe
+for /f "delims=" %%i in ('dir /B /X  .\download\LyX*') do (set lyxname=%%i)
+set lyxver=%lyxname:~4,1%.%lyxname:~5,1%.%lyxname:~6,1%
 
 :lyxinst
 
@@ -147,12 +147,12 @@ if not exist %~dp0LyTeX\MiKTeX\texmfs md %~dp0LyTeX\MiKTeX\texmfs
 
 ::7z x -y -o%~dp0LyTeX\MiKTeX\texmfs %downdir%\%mkbin%
 ::7z x -y -o%~dp0LyTeX\MiKTeX %downdir%\%mkbin%
-echo Extract failed! Manually operate，then press any key to continue...
+echo Extract failed! Manually operate, then press any key to continue...
 rem move /y %~dp0LyTeX\MiKTeX\texmfs\install %~dp0LyTeX\MiKTeX
 rem rmdir /s /q %~dp0LyTeX\MiKTeX\texmfs
 rem ren %~dp0LyTeX\MiKTeX\install texmfs
 pause
-copy /y %~dp0somebat\miktex-portable.cmd %~dp0LyTeX\MiKTeX
+copy /y somebat\miktex-portable.cmd %texdir%
 
 xcopy /e/i/y sometex\basic-mik %texdir%
 move /y %texdir%\About.htm %~dp0LyTeX
@@ -180,9 +180,9 @@ xcopy /e/i/y %~dp0texworks\TUG %texdir%\texmf-local\TUG
 
 echo.
 echo Updating MiKTeX...
-rem 命令行更新容易出问题，还是用 %texdir%\miktex-portable.cmd 在GUI模式更新更稳妥
+rem 命令行更新容易出问题, 还是用 %texdir%\miktex-portable.cmd 在GUI模式更新更稳妥
 call %texdir%\miktex-portable.cmd
-echo Update in GUI mode，then press any key to continue...
+echo Update in GUI mode, then press any key to continue...
 pause >nul
 ::%texdir%\texmfs\miktex\bin\mpm.exe --verbose --update
 ::%texdir%\texmfs\miktex\bin\mpm.exe --verbose --install-some=somedef\miktex.def

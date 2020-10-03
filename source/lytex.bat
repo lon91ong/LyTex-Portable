@@ -4,7 +4,7 @@ rem :: texname=MiKTeX or texname=TeXLive
 rem set  texname=%~n0
 rem :: echo %texname%
 
-set mainver=2.2a
+set mainver=2.3a
 set mainbin=LyTeX-%mainver%-bin.exe
 set mainsrc=LyTeX-%mainver%-src.zip
 

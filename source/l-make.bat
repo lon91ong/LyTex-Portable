@@ -10,8 +10,8 @@ if not exist %~dp0LyTeX mkdir %~dp0LyTeX
 ::==================== LyX ========================
 :makelyx
 
-set lyxver=2.3.5
-set lyxname=LyX-%lyxver:.=%1-Installer-3.exe
+for /f "delims=" %%i in ('dir /B /X  .\download\LyX*') do (set lyxname=%%i)
+set lyxver=%lyxname:~4,1%.%lyxname:~5,1%.%lyxname:~6,1%
 
 :lyxinst
 
@@ -53,64 +53,6 @@ rem LyX-Installer doesn't put these two files in this directiory
 
 xcopy /e/i/y %~dp0somelyx %~dp0LyTeX\LyX
 
-goto document
-
-rem :altinst
-
-rem set lyxaltname=LyX-223-Installer-1.exe
-
-rem if not exist %downdir%\%lyxaltname% (
-rem echo.
-rem echo Downloading LyX alternative installer...
-rem wget -nv -N -P %downdir% %lyxpath%/%lyxaltname%
-rem )
-
-rem echo.
-rem echo Extracting LyX...
-
-rem 7z x -y -o%~dp0LyTeX\LyX %downdir%\%lyxaltname%
-
-rem rmdir /s /q %~dp0LyTeX\LyX\$[81]
-rem move /y %~dp0LyTeX\LyX\$_OUTDIR\Resources %~dp0LyTeX\LyX
-rem move /y %~dp0LyTeX\LyX\$_OUTDIR\Aiksaurus %~dp0LyTeX\LyX
-rem move /y %~dp0LyTeX\LyX\$_OUTDIR\Aspell %~dp0LyTeX\LyX
-
-rem if not exist %~dp0LyTeX\LyX\python mkdir %~dp0LyTeX\LyX\python
-rem move /y %~dp0LyTeX\LyX\$_OUTDIR\bin\DLLs\unicodedata.pyd %~dp0LyTeX\LyX\python
-rem move /y %~dp0LyTeX\LyX\$_OUTDIR\bin\Lib %~dp0LyTeX\LyX\python
-rem move /y %~dp0LyTeX\LyX\$_OUTDIR\bin\python.exe %~dp0LyTeX\LyX\python
-rem move /y %~dp0LyTeX\LyX\$_OUTDIR\bin\python26.dll %~dp0LyTeX\LyX\python
-rem copy %~dp0LyTeX\LyX\$_OUTDIR\bin\Microsoft.VC90.CRT.manifest %~dp0LyTeX\LyX\python
-rem copy %~dp0LyTeX\LyX\$_OUTDIR\bin\msvcp90.dll %~dp0LyTeX\LyX\python
-rem copy %~dp0LyTeX\LyX\$_OUTDIR\bin\msvcr90.dll %~dp0LyTeX\LyX\python
-
-rem move /y %~dp0LyTeX\LyX\$_OUTDIR\bin\* %~dp0LyTeX\LyX\bin
-rem ::move /y %~dp0LyTeX\LyX\$_OUTDIR\dvipost %~dp0LyTeX\LyX
-rem :: Ghostscript directory doesn't have fonts and Resource subdirectory!
-rem move /y %~dp0LyTeX\LyX\$_OUTDIR\etc\Ghostscript %~dp0LyTeX\LyX
-rem move /y %~dp0LyTeX\LyX\$_OUTDIR\etc\Imagemagick %~dp0LyTeX\LyX
-
-rem xcopy /e/i/y %~dp0LyTeX\LyX\$_OUTDIR\etc\Metafile2eps %~dp0LyTeX\LyX\bin
-rem rmdir /s /q %~dp0LyTeX\LyX\$_OUTDIR
-rem rmdir /s /q %~dp0LyTeX\LyX\$APPDATA
-rem del /q %~dp0LyTeX\LyX\Aspell\Uninstall-AspellData.exe
-rem rmdir /s /q %~dp0LyTeX\LyX\bin\$PLUGINSDIR
-
-rem move /y %~dp0LyTeX\LyX\Imagemagick\config\* %~dp0LyTeX\LyX\Imagemagick
-rem move /y %~dp0LyTeX\LyX\Imagemagick\modules\coders\* %~dp0LyTeX\LyX\Imagemagick
-rem move /y %~dp0LyTeX\LyX\Imagemagick\modules\filters\* %~dp0LyTeX\LyX\Imagemagick
-rem rmdir /s /q %~dp0LyTeX\LyX\Imagemagick\config
-rem rmdir /s /q %~dp0LyTeX\LyX\Imagemagick\modules
-rem copy %~dp0LyTeX\LyX\bin\Microsoft.VC90.CRT.manifest %~dp0LyTeX\LyX\ImageMagick
-rem copy %~dp0LyTeX\LyX\bin\msvcp90.dll %~dp0LyTeX\LyX\ImageMagick
-rem copy %~dp0LyTeX\LyX\bin\msvcr90.dll %~dp0LyTeX\LyX\ImageMagick
-
-rem xcopy /e/i/y %~dp0sometex\basic-lyx %~dp0LyTeX\LyX
-
-::pause
-
-:document
-
 echo Copying Documents...
 if not exist %~dp0LyTeX\Manual mkdir %~dp0LyTeX\Manual
 xcopy /e/i/y %~dp0somedoc %~dp0LyTeX\Manual
@@ -147,12 +89,11 @@ if not exist %~dp0LyTeX\MiKTeX\texmfs md %~dp0LyTeX\MiKTeX\texmfs
 
 ::7z x -y -o%~dp0LyTeX\MiKTeX\texmfs %downdir%\%mkbin%
 ::7z x -y -o%~dp0LyTeX\MiKTeX %downdir%\%mkbin%
-echo Extract failed! Manually operate，then press any key to continue...
+echo Extract failed! Manually operate, then press any key to continue...
 rem move /y %~dp0LyTeX\MiKTeX\texmfs\install %~dp0LyTeX\MiKTeX
 rem rmdir /s /q %~dp0LyTeX\MiKTeX\texmfs
 rem ren %~dp0LyTeX\MiKTeX\install texmfs
 pause
-copy /y %~dp0somebat\miktex-portable.cmd %~dp0LyTeX\MiKTeX
 
 xcopy /e/i/y sometex\basic-mik %texdir%
 move /y %texdir%\About.htm %~dp0LyTeX
@@ -180,9 +121,9 @@ xcopy /e/i/y %~dp0texworks\TUG %texdir%\texmf-local\TUG
 
 echo.
 echo Updating MiKTeX...
-rem 命令行更新容易出问题，还是用 %texdir%\miktex-portable.cmd 在GUI模式更新更稳妥
+rem 命令行更新容易出问题, 还是用 %texdir%\miktex-portable.cmd 在GUI模式更新更稳妥
 call %texdir%\miktex-portable.cmd
-echo Update in GUI mode，then press any key to continue...
+echo Update in GUI mode, then press any key to continue...
 pause >nul
 ::%texdir%\texmfs\miktex\bin\mpm.exe --verbose --update
 ::%texdir%\texmfs\miktex\bin\mpm.exe --verbose --install-some=somedef\miktex.def

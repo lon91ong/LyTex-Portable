@@ -9,7 +9,7 @@ set Path=%~dp0somebin;%Path%
 
 set lyxver=2.3.5
 set lyxpath=ftp://ftp.lyx.org/pub/lyx/bin/%lyxver%
-set lyxname=LyX-%lyxver:.=%1-Installer-3.exe
+set lyxname=LyX-%lyxver:.=%2-Installer-4.exe
 
 echo.
 echo Downloading LyX installer...

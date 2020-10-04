@@ -12,7 +12,7 @@ set Path=%~dp0somebin;%Path%
 set downdir=%~dp0down
 
 :: buildtex=miktex or buildtex=texlive
-set buildtex=miktex
+set buildtex=texlive
 
 :maketidy
 

@@ -42,41 +42,12 @@ goto downend
 ::==================== TeXLive ========================
 :downlive
 
-::set tlnet=ftp://ftp.ctex.org/mirrors/CTAN/systems/texlive/tlnet/archive
-rem set tlnet=http://ftp.jaist.ac.jp/pub/CTAN/systems/texlive/tlnet/archive/
-set tlnet=https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet/
-
-setlocal enabledelayedexpansion
-
-if not exist download\texlive mkdir download\texlive
-
-set texout=%~dp0download\texlive
 echo.
-echo Output directory is %texout%
-echo.
-
-set coldir=%~dp0somedef
-
-:: Since string variables in dos script have length limitation,
-:: We have to handle c-latexextra downloadding as two part.
-:: http://support.microsoft.com/kb/830473/en-us/
-
-for /r %coldir% %%a in (tl*.def) do (
-    echo handling %%a...
-    set downlist=
-    for /f "tokens=1,2*" %%i in (%%a) do (
-        if %%i == depend (
-            set downlist=!downlist!%%j.tar.x?,
-        ) 
-    )
-    rem downlist should NOT end with comma!
-    set downlist=!downlist!collection-basic.tar.x?
-    :: echo !downlist!
-    wget -r -nv -np -nd -N -P !texout! -A !downlist! %tlnet%
-    echo.
+echo Downloading TinyTex.zip ...
+set tinytex=https://yihui.org/tinytex/TinyTeX.zip
+if not exist %downdir%/TinyTeX.zip (
+wget -c -O %downdir%/TinyTeX.zip --no-check-certificate %tinytex%
 )
-
-endlocal
 
 ::pause
 

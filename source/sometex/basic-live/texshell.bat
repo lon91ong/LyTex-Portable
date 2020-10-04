@@ -24,8 +24,8 @@ set platform=win32
 if "%1" equ "texmgr" (
 :: start tlmgr
 rem can't change "rem" to "::" in the following line! 
-rem cmd /C "tlmgr.bat --gui"
-start "title" "%~dp0bin\win32\tlmgr-gui.vbs"
+cmd /C "tlmgr.bat --gui"
+rem start "title" "%~dp0bin\win32\tlmgr-gui.vbs"
 exit
 )
 

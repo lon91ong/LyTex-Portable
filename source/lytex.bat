@@ -9,10 +9,9 @@ set mainbin=LyTeX-%mainver%-bin.exe
 set mainsrc=LyTeX-%mainver%-src.zip
 
 set Path=%~dp0somebin;%Path%
-set downdir=%~dp0down
 
 :: buildtex=miktex or buildtex=texlive
-set buildtex=miktex
+set buildtex=texlive
 
 :maketidy
 
@@ -28,7 +27,7 @@ call "%~dp0nsis\makensis.exe" %~dp0somensi\Setup.nsi
 call "%~dp0nsis\makensis.exe" %~dp0somensi\LyTeX.nsi
 
 if exist source (
-7z a -tzip %mainsrc% source -xr!.svn
+	7z a -tzip %mainsrc% source -xr!.svn
 )
 
 echo All are done!

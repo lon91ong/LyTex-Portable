@@ -1,12 +1,10 @@
 @echo off
-::set PROMPT=# $G
 set PROMPT=# 
 
 rem ------------------------------------------
 
 del /q LyTeX\LyX\lyx.usb
 del /q LyTeX\LyX\temp.usb
-
 del /q LyTeX\LyX\Uninstall-LyX.exe
 
 rem rmdir /s /q Resources\doc\ca
@@ -96,33 +94,35 @@ del /q LyTeX\Manual\english\lshort.pdf
 
 rem ------------------------------------------------
 
-rmdir /s /q LyTeX\TeXLive\texmfs\fonts\pk
-rmdir /s /q LyTeX\TeXLive\texmf-local\fonts\pk
-rmdir /s /q LyTeX\TeXLive\texmf-dist\fonts\pk
-rmdir /s /q LyTeX\TeXLive\texmf-var\fonts\pk
+rem rmdir /s /q LyTeX\TinyTex\texmfs\fonts\pk
+rmdir /s /q LyTeX\TinyTex\texmf-local\fonts\pk
+rmdir /s /q LyTeX\TinyTex\texmf-dist\fonts\pk
+rmdir /s /q LyTeX\TinyTex\texmf-var\fonts\pk
 
-del /q LyTeX\TeXLive\texmfs\fonts\cache\*
-del /q LyTeX\TeXLive\texmf-local\fonts\cache\*
-del /q LyTeX\TeXLive\texmf-dist\fonts\cache\*
-del /q LyTeX\TeXLive\texmf-var\fonts\cache\*
+rem del /q LyTeX\TinyTex\texmfs\fonts\cache\*
+del /q LyTeX\TinyTex\texmf-local\fonts\cache\*
+del /q LyTeX\TinyTex\texmf-dist\fonts\cache\*
+del /q LyTeX\TinyTex\texmf-var\fonts\cache\*
 
-del /q LyTeX\TeXLive\texmfs\ls-R
-del /q LyTeX\TeXLive\texmf-local\ls-R
-del /q LyTeX\TeXLive\texmf-dist\ls-R
-del /q LyTeX\TeXLive\texmf-var\ls-R
+rem del /q LyTeX\TinyTex\texmfs\ls-R
+del /q LyTeX\TinyTex\texmf-local\ls-R
+del /q LyTeX\TinyTex\texmf-dist\ls-R
+del /q LyTeX\TinyTex\texmf-var\ls-R
+del /q LyTeX\TinyTex\*.lst
 
-rmdir /s /q LyTeX\TeXLive\texmf-var\web2c
-rmdir /s /q LyTeX\TeXLive\temp
+rmdir /s /q LyTeX\TinyTex\texmf-var\web2c
+rmdir /s /q LyTeX\TinyTex\temp
 
 rem ----------------- TeXworks ------------------------
 
-rmdir /s /q  LyTeX\TexLive\tlpkg\texworks\templates
-xcopy /e/i/y texworks LyTeX\TexLive\tlpkg\texworks
+rmdir /s /q  LyTeX\TinyTex\tlpkg\texworks\templates
+xcopy /e/i/y texworks LyTeX\TinyTex\tlpkg\texworks
 
-rmdir /s /q  LyTeX\TexLive\tlpkg\texworks\completion
-rmdir /s /q  LyTeX\TexLive\tlpkg\texworks\translations
+rmdir /s /q  LyTeX\TinyTex\tlpkg\texworks\completion
+rmdir /s /q  LyTeX\TinyTex\tlpkg\texworks\translations
+rmdir /s /q  LyTeX\TinyTeX\tlpkg\texworks\texworks-help
 
-LyTeX\TeXLive\bin\win32\texhash.exe
+LyTeX\TinyTex\bin\win32\texhash.exe
 
 goto tidyend
 

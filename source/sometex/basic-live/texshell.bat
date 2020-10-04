@@ -24,16 +24,16 @@ set platform=win32
 if "%1" equ "texmgr" (
 :: start tlmgr
 rem can't change "rem" to "::" in the following line! 
-rem cmd /C "tlmgr.bat --gui"
-start "title" "%~dp0bin\win32\tlmgr-gui.vbs"
+cmd /C "tlmgr.bat --gui"
+rem start "title" "%~dp0bin\win32\tlmgr-gui.vbs"
 exit
 )
 
 :: start texshell
 set Path=%~dp0bin\win32;%~dp0tlpkg\tlgs\bin;%Path%
 cd ..
-set gs_lib=%cd%\TeXLive\tlpkg\tlgs\lib;%cd%\TeXLive\tlpkg\tlgs\fonts;
-set gs_dll=%cd%\TeXLive\tlpkg\tlgs\bin\gsdll32.dll
+set gs_lib=%cd%\TinyTeX\tlpkg\tlgs\lib;%cd%\TinyTeX\tlpkg\tlgs\fonts;
+set gs_dll=%cd%\TinyTeX\tlpkg\tlgs\bin\gsdll32.dll
 texhash
 if exist "%USERPROFILE%\My Documents\texdoc" (
     %HOMEDRIVE%

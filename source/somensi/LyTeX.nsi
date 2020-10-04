@@ -55,7 +55,6 @@ ShowInstDetails show
 
 AutoCloseWindow true
 
-
 Section
 
     # Can not be omitted
@@ -68,12 +67,12 @@ Section
     # run lytex extraction program
     IfFileExists "$INSTDIR\Setup.exe" 0 +3
     Exec '"$INSTDIR\Setup.exe" install'
+    Exec '$INSTDIR\TinyTex\init.bat'
     Goto done
     MessageBox MB_OK "Error: Could not find $INSTDIR\Setup.exe!"
     done:
 
 SectionEnd
-
 
 Function .onInit
    # If language is not Chinese, should change it to Enlish.
@@ -81,4 +80,3 @@ Function .onInit
        strcpy $LANGUAGE "1033"
    ${EndIf}
 FunctionEnd
-

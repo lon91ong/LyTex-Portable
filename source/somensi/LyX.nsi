@@ -54,7 +54,7 @@ FunctionEnd
 Section
 
     ${If} $%buildtex% == "texlive"
-        StrCpy $TEXBIN "$EXEDIR\TeXLive\bin\win32"
+        StrCpy $TEXBIN "$EXEDIR\TinyTeX\bin\win32"
     ${Else} ## miktex
         StrCpy $TEXBIN "$EXEDIR\MiKTeX\texmfs\miktex\bin"
     ${EndIf}

@@ -30,14 +30,14 @@ Section
 
 ${If} $%buildtex% == "texlive"
 
-    FileOpen $0 "$EXEDIR\TeXLive\tlpkg\texworks\texworks-setup.ini" a
+    FileOpen $0 "$EXEDIR\TinyTeX\tlpkg\texworks\texworks-setup.ini" a
     FileClose $0
-    FileOpen $0 "$EXEDIR\TeXLive\tlpkg\texworks\texworks-setup.ini" w
+    FileOpen $0 "$EXEDIR\TinyTeX\tlpkg\texworks\texworks-setup.ini" w
     ; there is a bug in texworks when reading texworks-setup.ini
     ${WordReplace} "$EXEDIR" "\" "/" "+" $1
-    FileWrite $0 "inipath = $1/TeXLive/tlpkg/texworks/$\r$\n"
-    FileWrite $0 "libpath = $1/TeXLive/tlpkg/texworks/$\r$\n"
-    FileWrite $0 "defaultbinpaths = $1/TeXLive/bin/win32;$\r$\n"
+    FileWrite $0 "inipath = $1/TinyTeX/tlpkg/texworks/$\r$\n"
+    FileWrite $0 "libpath = $1/TinyTeX/tlpkg/texworks/$\r$\n"
+    FileWrite $0 "defaultbinpaths = $1/TinyTeX/bin/win32;$\r$\n"
     FileClose $0
     IfErrors 0 +2
     MessageBox MB_OK "Error while initiating TeXworks!"
@@ -53,15 +53,15 @@ ${If} $%buildtex% == "texlive"
 
     # set path variable for gswin32c.exe
     ReadEnvStr $R0 "PATH"
-    StrCpy $R0 "$EXEDIR\TeXLive\tlpkg\tlgs\bin;$R0"
+    StrCpy $R0 "$EXEDIR\TinyTeX\tlpkg\tlgs\bin;$R0"
     System::Call 'kernel32::SetEnvironmentVariable(t, t) i("Path", R0)'
 
     # set ghostscript path, dvipdfmx need it
-    System::Call 'kernel32::SetEnvironmentVariable(t, t) i("GS_LIB", "$EXEDIR\TeXLive\tlpkg\tlgs\lib;$EXEDIR\TeXLive\tlpkg\tlgs\fonts;")'
-    ;System::Call 'kernel32::SetEnvironmentVariable(t, t) i("GS_DLL", "$EXEDIR\TeXLive\tlpkg\tlgs\bin\gsdll32.dll;")'
+    System::Call 'kernel32::SetEnvironmentVariable(t, t) i("GS_LIB", "$EXEDIR\TinyTeX\tlpkg\tlgs\lib;$EXEDIR\TinyTeX\tlpkg\tlgs\fonts;")'
+    ;System::Call 'kernel32::SetEnvironmentVariable(t, t) i("GS_DLL", "$EXEDIR\TinyTeX\tlpkg\tlgs\bin\gsdll32.dll;")'
 
     ${GetParameters} $1
-    Exec '"$EXEDIR\TeXLive\tlpkg\texworks\texworks.exe" $1'
+    Exec '"$EXEDIR\TinyTeX\tlpkg\texworks\texworks.exe" $1'
 
 ${Else} ## miktex
 

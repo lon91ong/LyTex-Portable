@@ -71,7 +71,7 @@ Function customPage
    ;MessageBox MB_OK "$R3"
    StrCmp $R3 "1" 0 default
    ${If} $%buildtex% == "texlive"
-   Exec '"$EXEDIR\TeXLive\texshell.bat" texmgr'
+   Exec '"$EXEDIR\TinyTeX\texshell.bat" texmgr'
    ${Else} ## miktex
    Exec '"$EXEDIR\MiKTeX\texshell.bat" texmgr'
    ${EndIf}

@@ -111,12 +111,12 @@ rem editor
 
 :: texworks config file lies in UserConfig or UserData dir 
 
-if not exist %texdir%\texmf-config\TeXworks mkdir %texdir%\texmf-config\TeXworks
-if not exist %texdir%\texmf-config\TeXworks\configuration mkdir %texdir%\texmf-config\TeXworks\configuration
-xcopy /e/i/y %~dp0texworks\configuration %texdir%\texmf-config\TeXworks\0.6\configuration
+if not exist %texdir%\texmf-local\TeXworks mkdir %texdir%\texmf-local\TeXworks
+if not exist %texdir%\texmf-local\TeXworks\configuration mkdir %texdir%\texmf-local\TeXworks\configuration
+xcopy /e/i/y %~dp0texworks\configuration %texdir%\texmf-local\TeXworks\0.6\configuration
 
-if not exist %texdir%\texmf-configTUG  mkdir %texdir%\texmf-config\TUG
-xcopy /e/i/y %~dp0texworks\TUG %texdir%\texmf-config\TUG
+if not exist %texdir%\texmf-local\TUG  mkdir %texdir%\texmf-local\TUG
+xcopy /e/i/y %~dp0texworks\TUG %texdir%\texmf-local\TUG
 
 echo.
 echo Updating MiKTeX...

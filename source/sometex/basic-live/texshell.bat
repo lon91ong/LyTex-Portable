@@ -23,28 +23,28 @@ set TEXBINDIR=%TEXDIR%bin\win32
 set platform=win32
 set PATH=%TEXBINDIR%;%PATH%
 if "%1" equ "texmgr" (
-:: start tlmgr
+rem start tlmgr
 rem can't change "rem" to "::" in the following line! 
-cmd /C "tlmgr update --list"
-rem start "title" "%~dp0bin\win32\tlmgr-gui.vbs"
-rem exit
+	cmd /C "tlmgr update --list"
+rem 	start "title" "tlmgr-gui.vbs"
+rem 	exit
 )
 if "%1" equ "init" ( (
-@echo Initialize the TinyTeX environment
-tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet
-tlmgr update --self
-tlmgr install texworks ctex CJK xeCJK xetex3
-texhash.exe
-@echo Initialize environment Done!
-ping 127.0.0.1 -n 6 > nul
-for /f %%b in ('dir /B /S /X *.log') do (del /q %%b)
-for /f %%c in ('dir /B /S /X *.pdf') do (del /q %%c)
-for /f %%d in ('dir /B /S /X *.txt') do (del /q %%d)
-exit
+	@echo Initialize the TinyTeX environment
+	tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet
+	tlmgr update --self
+	tlmgr install texworks ctex CJK xeCJK xetex3
+	texhash.exe
+	@echo Initialize environment Done!
+	ping 127.0.0.1 -n 6 > nul
+	for /f %%b in ('dir /B /S /X *.log') do (del /q %%b)
+	for /f %%c in ('dir /B /S /X *.pdf') do (del /q %%c)
+	for /f %%d in ('dir /B /S /X *.txt') do (del /q %%d)
+	exit
 )
 
 :: start texshell
-set Path=%~dp0bin\win32;%~dp0tlpkg\tlgs\bin;%Path%
+set Path=%~dp0tlpkg\tlgs\bin;%Path%
 cd ..
 set gs_lib=%cd%\TinyTeX\tlpkg\tlgs\lib;%cd%\TinyTeX\tlpkg\tlgs\fonts;
 set gs_dll=%cd%\TinyTeX\tlpkg\tlgs\bin\gsdll32.dll

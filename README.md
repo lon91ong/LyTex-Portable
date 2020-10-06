@@ -48,7 +48,7 @@
 最终回到原点...
 
 为了统一使用习惯, 在TinyTeX的基础上, 添加了几个包`texworks ctex CJK xeCJK xetex3`
-打包后的大小比MiKTeX的版本小了近80M, 编译速度上也更快些, 不知是不是错觉
+打包后的大小比MiKTeX的版本小了近80M(应该是包少的缘故), 编译速度上也更快些, 不知是不是错觉
 
 不像MiKTeX的GUI界面，Windows系统下TinyTeX没有GUI支持，只能用`tlmgr`在命令行界面下更新，命令也简单，常用的如下：
 
@@ -78,7 +78,7 @@ tlmgr install pacNameS
 
 ![首次运行](./manual/images/lyx_init.png)
 
-取消每次都提醒的勾选, 然后`Install`, 然后就是长长的等待... 只有第一次需要费点时间, 以后就不会了。
+取消每次都提醒的勾选, 然后`Install`, 然后就是长长的等待... 只有第一次需要费点时间, 以后就不会了(仅限MiKTex, TinyTeX还没找到自动补包的方法)
 
 中文支持首选`XeTeX`, 在`LyX`中使用需要做如下的文档配置:
 ![使用非Tex字体](./manual/images/lyx_xetex-1.png)

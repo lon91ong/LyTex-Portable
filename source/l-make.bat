@@ -197,14 +197,14 @@ xcopy /e/i/y sometex\basic-cct %outdir%
 xcopy /e/i/y sometex\basic-cjk %outdir%
 
 setlocal enabledelayedexpansion
-set "pkgs="
-for /f %%a in ('dir /B /X %~dp0sometex\basic-live\pkgs-*.lst') do (
-	for /F %%b in (%%a) do set "pkgs=!pkgs! %%b"
-)
-set "pkgs=!pkgs! texworks ctex CJK xeCJK xetex3"
+rem set "pkgs="
+rem for /f %%a in ('dir /B /X %~dp0sometex\basic-live\pkgs-*.lst') do (
+rem 	for /F %%b in (%%a) do set "pkgs=!pkgs! %%b"
+rem )
+set "pkgs=texworks ctex CJK xeCJK xetex3"
 
 @echo on
-call %outdir%\bin\win32\tlmgr path add
+rem call %outdir%\bin\win32\tlmgr path add
 call %outdir%\bin\win32\tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet
 call %outdir%\bin\win32\tlmgr update --self
 call %outdir%\bin\win32\tlmgr install %pkgs%
@@ -212,7 +212,7 @@ call %outdir%\bin\win32\tlmgr install %pkgs%
 endlocal
 
 %outdir%\bin\win32\texhash.exe
-
+for /f %%b in ('dir /B /S /X %~dp0LyTeX\*.log') do (del /q %%b)
 for /f %%c in ('dir /B /S /X %~dp0LyTeX\*.pdf') do (del /q %%c)
 for /f %%d in ('dir /B /S /X %~dp0LyTeX\*.txt') do (del /q %%d)
 

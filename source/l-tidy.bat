@@ -108,7 +108,7 @@ rem del /q LyTeX\TinyTex\texmfs\ls-R
 del /q LyTeX\TinyTex\texmf-local\ls-R
 del /q LyTeX\TinyTex\texmf-dist\ls-R
 del /q LyTeX\TinyTex\texmf-var\ls-R
-del /q LyTeX\TinyTex\*.lst
+rem del /q LyTeX\TinyTex\*.lst
 
 rmdir /s /q LyTeX\TinyTex\texmf-var\web2c
 rmdir /s /q LyTeX\TinyTex\temp

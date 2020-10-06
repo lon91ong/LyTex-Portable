@@ -67,7 +67,7 @@ Section
     # run lytex extraction program
     IfFileExists "$INSTDIR\Setup.exe" 0 +3
     Exec '"$INSTDIR\Setup.exe" install'
-    Exec '$INSTDIR\TinyTex\init.bat'
+    Exec '$INSTDIR\TinyTex\bin\win32\texhash.exe'
     Goto done
     MessageBox MB_OK "Error: Could not find $INSTDIR\Setup.exe!"
     done:

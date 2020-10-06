@@ -61,7 +61,7 @@ ${If} $%buildtex% == "texlive"
     ;System::Call 'kernel32::SetEnvironmentVariable(t, t) i("GS_DLL", "$EXEDIR\TinyTeX\tlpkg\tlgs\bin\gsdll32.dll;")'
 
     ${GetParameters} $1
-    Exec '"$EXEDIR\TinyTeX\tlpkg\texworks\texworks.exe" $1'
+    Exec '"$EXEDIR\TinyTeX\bin\win32\texworks.exe" $1'
 
 ${Else} ## miktex
 

@@ -24,9 +24,9 @@ set platform=win32
 if "%1" equ "texmgr" (
 :: start tlmgr
 rem can't change "rem" to "::" in the following line! 
-cmd /C "tlmgr.bat --gui"
+cmd /C "%~dp0bin\win32\tlmgr update --list"
 rem start "title" "%~dp0bin\win32\tlmgr-gui.vbs"
-exit
+rem exit
 )
 
 :: start texshell
@@ -45,4 +45,4 @@ if exist "%USERPROFILE%\My Documents\texdoc" (
     )
 call cmd
 
-:pause
+::pause

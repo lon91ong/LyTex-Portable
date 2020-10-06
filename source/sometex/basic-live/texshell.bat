@@ -29,7 +29,7 @@ rem can't change "rem" to "::" in the following line!
 rem 	start "title" "tlmgr-gui.vbs"
 rem 	exit
 )
-if "%1" equ "init" ( (
+if "%1" equ "init" (
 	@echo Initialize the TinyTeX environment
 	tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet
 	tlmgr update --self

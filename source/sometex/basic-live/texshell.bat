@@ -8,12 +8,12 @@ set tldrive=%~d0
 %tldrive%
 cd %TEXDIR%
 
-set TEXMFCNF=
-set TEXMFMAIN=
-set TEXMFDIST=
-set TEXMFLOCAL=
-set TEXMFVAR=
-set TEXMF=
+set TEXMFCNF=%TEXDIR%
+set TEXMFMAIN=%TEXDIR%
+set TEXMFDIST=%TEXDIR%texmf-dist
+set TEXMFLOCAL=%TEXDIR%texmf-local
+set TEXMFVAR=%TEXDIR%texmf-var
+set TEXMF=%TEXDIR%
 
 set FONTCONFIG_FILE=
 set FONTCONFIG_PATH=
@@ -21,12 +21,26 @@ set FC_CACHEDIR=
 
 set TEXBINDIR=%TEXDIR%bin\win32
 set platform=win32
+set PATH=%TEXBINDIR%;%PATH%
 if "%1" equ "texmgr" (
 :: start tlmgr
 rem can't change "rem" to "::" in the following line! 
-cmd /C "%~dp0bin\win32\tlmgr update --list"
+cmd /C "tlmgr update --list"
 rem start "title" "%~dp0bin\win32\tlmgr-gui.vbs"
 rem exit
+)
+if "%1" equ "init" ( (
+@echo Initialize the TinyTeX environment
+tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet
+tlmgr update --self
+tlmgr install texworks ctex CJK xeCJK xetex3
+texhash.exe
+@echo Initialize environment Done!
+ping 127.0.0.1 -n 6 > nul
+for /f %%b in ('dir /B /S /X *.log') do (del /q %%b)
+for /f %%c in ('dir /B /S /X *.pdf') do (del /q %%c)
+for /f %%d in ('dir /B /S /X *.txt') do (del /q %%d)
+exit
 )
 
 :: start texshell

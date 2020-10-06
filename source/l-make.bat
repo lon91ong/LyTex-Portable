@@ -111,12 +111,12 @@ rem editor
 
 :: texworks config file lies in UserConfig or UserData dir 
 
-if not exist %texdir%\texmf-local\TeXworks mkdir %texdir%\texmf-local\TeXworks
-if not exist %texdir%\texmf-local\TeXworks\configuration mkdir %texdir%\texmf-local\TeXworks\configuration
-xcopy /e/i/y %~dp0texworks\configuration %texdir%\texmf-local\TeXworks\0.6\configuration
+if not exist %texdir%\texmf-config\TeXworks mkdir %texdir%\texmf-config\TeXworks
+if not exist %texdir%\texmf-config\TeXworks\configuration mkdir %texdir%\texmf-config\TeXworks\configuration
+xcopy /e/i/y %~dp0texworks\configuration %texdir%\texmf-config\TeXworks\0.6\configuration
 
-if not exist %texdir%\texmf-local\TUG  mkdir %texdir%\texmf-local\TUG
-xcopy /e/i/y %~dp0texworks\TUG %texdir%\texmf-local\TUG
+if not exist %texdir%\texmf-configTUG  mkdir %texdir%\texmf-config\TUG
+xcopy /e/i/y %~dp0texworks\TUG %texdir%\texmf-config\TUG
 
 echo.
 echo Updating MiKTeX...
@@ -166,7 +166,7 @@ rmdir /s /q %outdir%\texmf-dist\source
 :: rmdir /s /q %outdir%\texmf-local\doc
 :: rmdir /s /q %outdir%\texmf-local\source
 :: rmdir /s /q %outdir%\ctxdir
-:: del /q %outdir%\release-texlive.txt
+rem del /q %outdir%\release-texlive.txt
 rem del /q %outdir%\install-tl.log
 rem del /q %outdir%\texmf.cnf
 rem del /q %outdir%\install-tl
@@ -185,8 +185,8 @@ xcopy /e/i/y sometex\basic-bin %outdir%\bin\win32
 
 rem editor
 
-if not exist %outdir%\tlpkg\texworks mkdir %outdir%\tlpkg\texworks
-xcopy /e/i/y %~dp0texworks %outdir%\tlpkg\texworks
+if not exist %outdir%\texmf-config\texworks mkdir %outdir%\texmf-config\texworks
+xcopy /e/i/y %~dp0texworks %outdir%\texmf-config\texworks
 
 rem texmf-local 
 
@@ -196,22 +196,14 @@ xcopy /e/i/y sometex\basic-tex %outdir%
 xcopy /e/i/y sometex\basic-cct %outdir%
 xcopy /e/i/y sometex\basic-cjk %outdir%
 
-setlocal enabledelayedexpansion
-rem set "pkgs="
-rem for /f %%a in ('dir /B /X %~dp0sometex\basic-live\pkgs-*.lst') do (
-rem 	for /F %%b in (%%a) do set "pkgs=!pkgs! %%b"
-rem )
-set "pkgs=texworks ctex CJK xeCJK xetex3"
-
 @echo on
-rem call %outdir%\bin\win32\tlmgr path add
+rem tlmgr path add
 call %outdir%\bin\win32\tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet
 call %outdir%\bin\win32\tlmgr update --self
-call %outdir%\bin\win32\tlmgr install %pkgs%
+call %outdir%\bin\win32\tlmgr install texworks ctex CJK xeCJK xetex3
+call %outdir%\bin\win32\texhash.exe
+@echo off
 
-endlocal
-
-%outdir%\bin\win32\texhash.exe
 for /f %%b in ('dir /B /S /X %~dp0LyTeX\*.log') do (del /q %%b)
 for /f %%c in ('dir /B /S /X %~dp0LyTeX\*.pdf') do (del /q %%c)
 for /f %%d in ('dir /B /S /X %~dp0LyTeX\*.txt') do (del /q %%d)

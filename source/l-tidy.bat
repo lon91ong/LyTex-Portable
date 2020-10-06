@@ -110,7 +110,7 @@ del /q LyTeX\TinyTex\texmf-dist\ls-R
 del /q LyTeX\TinyTex\texmf-var\ls-R
 rem del /q LyTeX\TinyTex\*.lst
 
-rmdir /s /q LyTeX\TinyTex\texmf-var\web2c
+rem rmdir /s /q LyTeX\TinyTex\texmf-var\web2c
 rmdir /s /q LyTeX\TinyTex\temp
 
 rem ----------------- TeXworks ------------------------

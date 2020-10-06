@@ -48,6 +48,7 @@
 最终回到原点...
 
 为了统一使用习惯, 在TinyTeX的基础上, 添加了几个包`texworks ctex CJK xeCJK xetex3`
+
 打包后的大小比MiKTeX的版本小了近80M(应该是包少的缘故), 编译速度上也更快些, 不知是不是错觉
 
 不像MiKTeX的GUI界面，Windows系统下TinyTeX没有GUI支持，只能用`tlmgr`在命令行界面下更新，命令也简单，常用的如下：
@@ -86,6 +87,7 @@ tlmgr install pacNameS
 ![PDF输出格式](./manual/images/lyx_xetex-3.png)
 
 还有PDF中的链接格式也顺便改成习惯的:
+
 ![PDF链接](./manual/images/pdf-link.png)
 
 有些文档`XeTeX`出错, 这是可以用`pdflatex`作为替补, 把文档的编码换一下即可:

@@ -207,7 +207,7 @@ call %outdir%\bin\win32\texhash.exe
 for /f %%b in ('dir /B /S /X %~dp0LyTeX\*.log') do (del /q %%b)
 for /f %%c in ('dir /B /S /X %~dp0LyTeX\*.pdf') do (del /q %%c)
 for /f %%d in ('dir /B /S /X %~dp0LyTeX\*.txt') do (del /q %%d)
-
+rmdir /s /q %outdir%\texmf-config\texworks
 ::pause
 
 goto makeend

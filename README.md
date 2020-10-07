@@ -79,7 +79,7 @@ tlmgr install pacNameS
 
 ![首次运行](./manual/images/lyx_init.png)
 
-取消每次都提醒的勾选, 然后`Install`, 然后就是长长的等待... 只有第一次需要费点时间, 以后就不会了(仅限MiKTex, TinyTeX还没找到自动补包的方法)
+取消每次都提醒的勾选, 然后`Install`, 然后就是长长的等待... 只有第一次需要费点时间, 以后就不会了(仅限MiKTex, [TinyTeX还没找到自动补包](https://tex.stackexchange.com/questions/110501/auto-package-download-for-texlive)的方法)
 
 中文支持首选`XeTeX`, 在`LyX`中使用需要做如下的文档配置:
 ![使用非Tex字体](./manual/images/lyx_xetex-1.png)

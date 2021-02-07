@@ -6,7 +6,7 @@
 
 原作者很久很久都没有更新了，我当年（2015）写研究生毕业论文就用的这个，相对于其他的LaTeX安装方法，这个够简单实用的，推荐入门的同学使用。
 
-我做的改动：更新LyX至2.3.5.2，MikTex至20.6.29，TeXWorks至0.6.5，TinyTex下载2020.10版
+我做的改动：更新[LyX](https://mirrors.tuna.tsinghua.edu.cn/lyx/bin/)至2.3.5.2，[MikTex](https://mirrors.tuna.tsinghua.edu.cn/ctan/systems/win32/miktex/setup/)至20.6.29，[TeXWorks](https://github.com/TeXworks/texworks/releases)至0.6.5，[TinyTex](https://github.com/yihui/tinytex-releases)下载2020.10版
 
 ![](./manual/images/lyx.png)
 

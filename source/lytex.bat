@@ -5,13 +5,13 @@ rem set  texname=%~n0
 rem :: echo %texname%
 
 set mainver=2.3a
-set mainbin=LyTeX-%mainver%-bin.exe
 set mainsrc=LyTeX-%mainver%-src.zip
 
 set Path=%~dp0somebin;%Path%
 
 :: buildtex=miktex or buildtex=texlive
-set buildtex=texlive
+set buildtex=miktex
+if "%buildtex%"=="texlive" ( set mainbin=LyTeX-%mainver%-Liv.exe ) else ( set mainbin=LyTeX-%mainver%-Mik.exe )
 
 :maketidy
 

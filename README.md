@@ -6,7 +6,7 @@
 
 原作者很久很久都没有更新了，我当年（2015）写研究生毕业论文就用的这个，相对于其他的LaTeX安装方法，这个够简单实用的，推荐入门的同学使用。
 
-我做的改动：更新[LyX](https://mirrors.tuna.tsinghua.edu.cn/lyx/bin/)至2.3.5.2，[MikTex](https://mirrors.tuna.tsinghua.edu.cn/ctan/systems/win32/miktex/setup/)至20.6.29，[TeXWorks](https://github.com/TeXworks/texworks/releases)至0.6.5，[TinyTex](https://github.com/yihui/tinytex-releases)下载2020.10版
+我做的改动：更新[LyX](https://mirrors.tuna.tsinghua.edu.cn/lyx/bin/)至2.3.6.1，[MikTex](https://mirrors.tuna.tsinghua.edu.cn/ctan/systems/win32/miktex/setup/)至20.6.29，[TeXWorks](https://github.com/TeXworks/texworks/releases)至0.6.5，[TinyTex](https://github.com/yihui/tinytex-releases)下载2021.02版
 
 ![](./manual/images/lyx.png)
 
@@ -33,7 +33,9 @@
 #### 更新备忘
 
 **MiKTeX更新**
-[MiKTeX清华源](https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/win32/miktex/setup/windows-x86/)，下载`miktex-portable.exe`
+[MiKTeX清华源](https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/win32/miktex/setup/windows-x86/)，下载`basic-miktex-*.exe`,**重命名**为`miktex-portable.exe` 
+
+> 这里的重命名步骤必不可少，[参考](https://miktex.org/howto/portable-edition)
 
 运行lytex.bat ... 
 提示`Extract failed! Manually operate，then press any key to continue...`

@@ -19,7 +19,6 @@
 ### 生成查看PDF
 
 ![生成](./manual/images/pdf1.png)
-
 ![查看](./manual/images/pdf2.png)
 
 分享记录一个LaTeX的学习网站：[LaTeX Studio](http://wenda.latexstudio.net/)

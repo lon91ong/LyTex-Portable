@@ -94,14 +94,13 @@ rem rmdir /s /q %~dp0LyTeX\MiKTeX\texmfs
 rem ren %~dp0LyTeX\MiKTeX\install texmfs
 pause
 
+rem texmf-local 
+
+if not exist %texdir%\texmf-local mkdir %texdir%\texmf-local
 xcopy /e/i/y sometex\basic-mik %texdir%
 move /y %texdir%\About.htm %~dp0LyTeX
 
 xcopy /e/i/y sometex\basic-bin %texdir%\texmfs\miktex\bin
-
-rem texmf-local 
-
-if not exist %texdir%\texmf-local mkdir %texdir%\texmf-local
 
 xcopy /e/i/y sometex\basic-tex %texdir%
 xcopy /e/i/y sometex\basic-cct %texdir%

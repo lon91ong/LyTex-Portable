@@ -96,5 +96,6 @@ tlmgr install pacNameS
 ![pdfLaTeX文档编码](./manual/images/lyx_pdflatex.png)
 
 **备忘**
-Xetex变异错误：`Missing glyphs! Missing character: There is no \* in font \*`
+
+Xetex编译错误：`Missing glyphs! Missing character: There is no * in font *`
 字体中缺少部分字符所致，修正方法：在文档导言处插入`\setmainfont{Times New Roman}`

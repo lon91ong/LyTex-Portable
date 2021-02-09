@@ -120,7 +120,7 @@ xcopy /e/i/y %~dp0texworks\TUG %texdir%\texmf-local\TUG
 echo.
 echo Updating MiKTeX...
 rem 命令行更新容易出问题, 还是用 %texdir%\miktex-portable.cmd 在GUI模式更新更稳妥
-call %texdir%\miktex-portable.cmd
+call %texdir%\texshell.bat texmgr
 echo Update in GUI mode, then press any key to continue...
 pause >nul
 ::%texdir%\texmfs\miktex\bin\mpm.exe --verbose --update

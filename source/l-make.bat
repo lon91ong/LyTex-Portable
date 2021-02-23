@@ -199,7 +199,7 @@ xcopy /e/i/y sometex\basic-cjk %outdir%
 rem tlmgr path add
 call %outdir%\bin\win32\tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet
 call %outdir%\bin\win32\tlmgr update --self
-call %outdir%\bin\win32\tlmgr install texworks ctex CJK xeCJK xetex3
+call %outdir%\bin\win32\tlmgr install texworks ctex CJK xeCJK xetex3 setspace
 call %outdir%\bin\win32\texhash.exe
 @echo off
 

@@ -14,6 +14,7 @@ set TEXMFDIST=%TEXDIR%texmf-dist
 set TEXMFLOCAL=%TEXDIR%texmf-local
 set TEXMFVAR=%TEXDIR%texmf-var
 set TEXMF=%TEXDIR%
+set TEXMFDBS={%TEXDIR%texmf-config,%TEXMFVAR%,%TEXMFLOCAL%,%TEXMFDIST%}
 
 set FONTCONFIG_FILE=
 set FONTCONFIG_PATH=
@@ -33,14 +34,14 @@ if "%1" equ "init" (
 	@echo Initialize the TinyTeX environment
 	tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet
 	tlmgr update --self
-	tlmgr install texworks ctex CJK xeCJK xetex3
+	tlmgr install texworks ctex CJK xeCJK xetex3 setspace
 	texhash.exe
 	@echo Initialize environment Done!
 	ping 127.0.0.1 -n 6 > nul
 	for /f %%b in ('dir /B /S /X *.log') do (del /q %%b)
 	for /f %%c in ('dir /B /S /X *.pdf') do (del /q %%c)
 	for /f %%d in ('dir /B /S /X *.txt') do (del /q %%d)
-	exit
+rem 	exit
 )
 
 :: start texshell

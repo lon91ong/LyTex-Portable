@@ -1,23 +1,27 @@
 @echo off
-
-rem :: texname=MiKTeX or texname=TeXLive
-rem set  texname=%~n0
-rem :: echo %texname%
-
+set PROMPT=# 
 set mainver=2.3a
 set mainbin=LyTeX-%mainver%-bin.exe
 set mainsrc=LyTeX-%mainver%-src.zip
 
-set Path=%~dp0somebin;%Path%
-
 :: buildtex=miktex or buildtex=texlive
 set buildtex=texlive
 
+if "%buildtex%"=="miktex" (
+	rmdir /s /q %texdir%\texmfs\doc
+	rmdir /s /q %texdir%\texmfs\source
+) else (
+	xcopy /e/i/y %~dp0sometex\basic-live %~dp0LyTeX\TinyTex
+	move /y %~dp0LyTeX\TinyTex\About.htm %~dp0LyTeX
+)
+::pause
 :maketidy
 
-if not exist source call l-down.bat
-if not exist source call l-make.bat
 call l-tidy.bat
+if "%buildtex%"=="miktex" (
+	del /q %~dp0LyTeX\MiKTeX\texmf-local\miktex\cache\packages\*
+	del /q %~dp0LyTeX\MiKTeX\texmf-local\miktex\log\*
+)
 
 :buildnsi
 

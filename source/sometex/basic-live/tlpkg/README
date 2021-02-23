@@ -1,0 +1,26 @@
+Originally written by Norbert Preining, 2007.  Public domain.
+
+This directory contains infrastructure for TeX Live.
+
+texlive.tlpdb	the database of installed packages, updated
+		automatically in the source repo by karl@tug cron.
+
+TeXLive/	the Perl library for TeX Live support; this is what the
+		infrastructure and installer use.
+
+archive/	old junk kept online for posterity.
+asymptote/	asymptote binary plus necessary libraries for Windows.
+backups/	where tlmgr backups are kept.
+bin/		stuff for TL developers; nothing for installer or user.
+dev/		Patches and programs under development or in limbo.
+doc/		Documentation of the infrastructure.
+dviout/		DVI previewer for Windows which we ship.
+installer/	cross-platform Perl installer support files.
+libexec/	helpers for ctan2tl, etc.
+texworks/	GUI front end for Windows which we ship.
+tlgs/		stripped-down Ghostscript for Windows which we ship.
+tlperl/		stripped-down Perl for Windows which we ship.
+tlpostcode/	scripts for configuration of some packages.
+tlpsrc/		original source definitions for all packages in TeX Live.
+tlpsv/	   	PostScript previewer for Windows which we ship.
+translations/	Perl module used for translations, and all .po files.

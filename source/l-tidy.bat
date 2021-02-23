@@ -2,7 +2,7 @@
 set PROMPT=# 
 
 rem ------------------------------------------
-
+rd /s /q LyTeX\Manual
 del /q LyTeX\LyX\lyx.usb
 del /q LyTeX\LyX\temp.usb
 del /q LyTeX\LyX\Uninstall-LyX.exe

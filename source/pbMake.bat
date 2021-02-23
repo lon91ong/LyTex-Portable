@@ -4,7 +4,7 @@ set mainver=2.3a
 set mainbin=LyTeX-%mainver%-bin.exe
 set mainsrc=LyTeX-%mainver%-src.zip
 
-:: buildtex=miktex or buildtex=texlive
+:: miktex or texlive
 set buildtex=texlive
 
 if "%buildtex%"=="miktex" (

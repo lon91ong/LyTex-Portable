@@ -16,22 +16,23 @@
 
 ![LyX简介](./manual/images/lyx2.png)
 
-### 生成查看PDF
+## 生成查看PDF
 
 ![生成](./manual/images/pdf1.png)
 ![查看](./manual/images/pdf2.png)
 
 分享记录一个LaTeX的学习网站：[LaTeX Studio](http://wenda.latexstudio.net/)
 
-##### 补充两条有参考价值的LyX中文笔记：
+#### 补充两条有参考价值的LyX中文笔记：
 
 [在 LyX 中使用中文 - Yihui Xie | 谢益辉](https://yihui.name/cn/2011/05/write-chinese-in-lyx/)
 
 [LaTeX中文排版（使用XeTeX）](http://linux-wiki.cn/wiki/zh-hans/LaTeX中文排版（使用XeTeX）)
 
-#### 更新备忘
+## 更新备忘
 
-**MiKTeX更新**
+### MiKTeX更新
+
 [MiKTeX清华源](https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/win32/miktex/setup/windows-x86/)，下载`basic-miktex-*.exe`,**重命名**为`miktex-portable.exe` 
 
 > 这里的重命名步骤必不可少，[参考](https://miktex.org/howto/portable-edition)
@@ -40,7 +41,7 @@
 提示`Extract failed! Manually operate，then press any key to continue...`
 7Zip无法解压`miktex-portable.exe`，需要手动操作，直接运行释放到`source\LyTeX\MiKTeX`下，将`texmfs`下除了`install`目录外其它的删掉，把`install`下的所有放上级目录`texmfs`中，删除`install`目录, `then press any key to continue...`
 
-**TinyTeX更新**
+### TinyTeX更新
 
 折腾了三天把[TinyTeX](https://github.com/yihui/tinytex)的版本打包好了, 三天都在跳坑
 
@@ -48,11 +49,14 @@
 
 最终回到原点...
 
-为了统一使用习惯, 在TinyTeX的基础上, 添加了几个包`texworks ctex CJK xeCJK xetex3`
+为了方便上手测试, 以LyX环境下编译`帮助`-`入门教程`文档为标准, 
+在`TinyTeX-1`的基础上,添加了包`texworks setspace`; 
+用XeTeX编译的基础包`ctex CJK xeCJK xetex3`;
+用pdflatex编译时, 提示缺少的`pmboxdraw'都直接集成了。
 
 打包后的大小比MiKTeX的版本小了近80M(应该是包少的缘故), 编译速度上也更快些, 不知是不是错觉
 
-不像MiKTeX的GUI界面，Windows系统下TinyTeX没有GUI支持，只能用`tlmgr`在命令行界面下更新，命令也简单，常用的如下：
+不像MiKTeX的GUI界面，Windows系统下TinyTeX没有GUI支持，只能用`tlmgr`在命令行界面下更新，命令也简单，常用的如下：[参考](https://www.tug.org/texlive/doc/tlmgr.html#update-option...-pkg)
 
 ```bash
 #设置清华源
@@ -66,10 +70,13 @@ tlmgr info pacName
 #安装包
 tlmgr install pacNameS
 ```
+ **2021-2-23补充**
+`tlmgr update --self`更新后[遇到了`no appropriate script or program found: fmtutil`的问题](https://github.com/yihui/tinytex/issues/282), 多番折腾后发现是命令行更新的方式更新文件不完整, 需要下载[tlmgr在Windows下的独立更新包](https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet/update-tlmgr-latest.exe)后解压覆盖的方式更新, 覆盖之后再执行一次`tlmgr update --self`即可解决问题。
 
-更多命令参见[官方文档](https://tug.org/texlive/doc/tlmgr.html)
+以体积中等的为基础，补充了
 
-**LyX更新**
+### LyX更新
+
 [LyX清华源](https://mirrors.tuna.tsinghua.edu.cn/lyx/bin/)下载最新版放入目录`LyTeX\Common\download`下,再用`Setup.exe`的选项更新即可。如下图所示:
 
 ![更新LyX](./manual/images/lyx-up.png)
@@ -98,4 +105,13 @@ tlmgr install pacNameS
 
 Xetex编译错误：`Missing glyphs! Missing character: There is no * in font *`
 
-字体中缺少部分字符所致，修正方法：在文档导言处插入`\setmainfont{Times New Roman}`
+字体中缺少部分字符所致，修正方法：在文档导言处插入`\setmainfont{Times New Roman}`或者`\setmainfont{SimSun}`都行
+
+pdflatex编译找不到字体错误：`pdflatex.exe (file *): Font * at * not found` [参考](https://tex.stackexchange.com/questions/280631/new-font-file-not-found-with-miktex-installation)
+
+在MikTeX环境下解决办法: `initexmf --admin --mkmaps`
+在TinyTeX/TexLive环境下: 进入`TinyTeX\bin\win32`目录,把`updmap`开头的三个程序挨个双击执行一遍
+
+
+
+

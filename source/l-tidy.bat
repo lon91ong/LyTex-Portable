@@ -99,16 +99,16 @@ rmdir /s /q LyTeX\TinyTex\texmf-local\fonts\pk
 rmdir /s /q LyTeX\TinyTex\texmf-dist\fonts\pk
 rmdir /s /q LyTeX\TinyTex\texmf-var\fonts\pk
 
+del /q LyTeX\TinyTex\install-tl
+del /q LyTeX\TinyTex\install-tl-windows.bat
 rem del /q LyTeX\TinyTex\texmfs\fonts\cache\*
 del /q LyTeX\TinyTex\texmf-local\fonts\cache\*
 del /q LyTeX\TinyTex\texmf-dist\fonts\cache\*
 del /q LyTeX\TinyTex\texmf-var\fonts\cache\*
 
-rem del /q LyTeX\TinyTex\texmfs\ls-R
 del /q LyTeX\TinyTex\texmf-local\ls-R
 del /q LyTeX\TinyTex\texmf-dist\ls-R
 del /q LyTeX\TinyTex\texmf-var\ls-R
-rem del /q LyTeX\TinyTex\*.lst
 
 rem rmdir /s /q LyTeX\TinyTex\texmf-var\web2c
 rmdir /s /q LyTeX\TinyTex\temp

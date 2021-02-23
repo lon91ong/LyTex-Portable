@@ -120,7 +120,7 @@ xcopy /e/i/y %~dp0texworks\TUG %texdir%\texmf-local\TUG
 echo.
 echo Updating MiKTeX...
 rem 命令行更新容易出问题, 还是用 %texdir%\miktex-portable.cmd 在GUI模式更新更稳妥
-call %texdir%\texshell.bat texmgr
+call %texdir%\texmfs\miktex\bin\mpm.exe"
 echo Update in GUI mode, then press any key to continue...
 pause >nul
 ::%texdir%\texmfs\miktex\bin\mpm.exe --verbose --update
@@ -199,7 +199,7 @@ xcopy /e/i/y sometex\basic-cjk %outdir%
 rem tlmgr path add
 call %outdir%\bin\win32\tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet
 call %outdir%\bin\win32\tlmgr update --self
-call %outdir%\bin\win32\tlmgr install texworks ctex CJK xeCJK xetex3 setspace
+call %outdir%\bin\win32\tlmgr install texworks ctex CJK xeCJK xetex3 setspace pmboxdraw
 call %outdir%\bin\win32\texhash.exe
 @echo off
 

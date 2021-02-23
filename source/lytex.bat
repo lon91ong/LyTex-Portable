@@ -10,7 +10,7 @@ set mainsrc=LyTeX-%mainver%-src.zip
 
 set Path=%~dp0somebin;%Path%
 
-:: buildtex=miktex or buildtex=texlive
+:: miktex OR texlive
 set buildtex=texlive
 
 :maketidy

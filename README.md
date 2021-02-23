@@ -52,7 +52,7 @@
 为了方便上手测试, 以LyX环境下编译`帮助`-`入门教程`文档为标准, 
 在`TinyTeX-1`的基础上,添加了包`texworks setspace`; 
 用XeTeX编译的基础包`ctex CJK xeCJK xetex3`;
-用pdflatex编译时, 提示缺少的`pmboxdraw'都直接集成了。
+用pdflatex编译时, 提示缺少的`pmboxdraw`都直接集成了。
 
 打包后的大小比MiKTeX的版本小了近80M(应该是包少的缘故), 编译速度上也更快些, 不知是不是错觉
 

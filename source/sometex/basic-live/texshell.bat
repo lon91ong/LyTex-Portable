@@ -33,8 +33,8 @@ rem 	exit
 if "%1" equ "init" (
 	@echo Initialize the TinyTeX environment
 	tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet
-	tlmgr update --self
-	tlmgr install texworks ctex CJK xeCJK xetex3 setspace pmboxdraw
+rem 	tlmgr update --self
+rem 	tlmgr install texworks ctex CJK xeCJK xetex3 setspace pmboxdraw
 	texhash.exe
 rem 	fc-cache.exe 2> nul
 	@echo Initialize environment Done!

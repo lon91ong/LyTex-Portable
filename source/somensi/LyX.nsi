@@ -55,8 +55,14 @@ Section
 
     ${If} $%buildtex% == "texlive"
         StrCpy $TEXBIN "$EXEDIR\TinyTeX\bin\win32"
+		System::Call 'kernel32::SetEnvironmentVariable(t, t) i("FONTCONFIG_FILE", "fonts.conf")'
+		System::Call 'kernel32::SetEnvironmentVariable(t, t) i("FONTCONFIG_PATH", "$EXEDIR\TinyTeX\texmf-var\fonts\conf")'
+		System::Call 'kernel32::SetEnvironmentVariable(t, t) i("FC_CACHEDIR", "$EXEDIR\TinyTeX\texmf-var\fonts\cache")'
     ${Else} ## miktex
         StrCpy $TEXBIN "$EXEDIR\MiKTeX\texmfs\miktex\bin"
+		System::Call 'kernel32::SetEnvironmentVariable(t, t) i("FONTCONFIG_FILE", "fonts.conf")'
+		System::Call 'kernel32::SetEnvironmentVariable(t, t) i("FONTCONFIG_PATH", "$EXEDIR\MiKTeX\texmf-local\fontconfig\config")'
+		System::Call 'kernel32::SetEnvironmentVariable(t, t) i("FC_CACHEDIR", "$EXEDIR\MiKTeX\texmf-local\fontconfig\cache")'
     ${EndIf}
 
     # clear other texmf.cnf & fontconfig variables such as context-minimal's or texlive's
@@ -64,10 +70,7 @@ Section
     System::Call 'kernel32::SetEnvironmentVariable(t, t) i("TEXMFMAIN", "")'
     System::Call 'kernel32::SetEnvironmentVariable(t, t) i("TEXMFDIST", "")'
     System::Call 'kernel32::SetEnvironmentVariable(t, t) i("TEXMF", "")'
-    # 3 lines below refer to : http://bbs.ctex.org/forum.php?mod=viewthread&tid=50509
-    #System::Call 'kernel32::SetEnvironmentVariable(t, t) i("FONTCONFIG_FILE", "fonts.conf")'
-    #System::Call 'kernel32::SetEnvironmentVariable(t, t) i("FONTCONFIG_PATH", "$EXEDIR\MiKTeX\texmf-local\fontconfig\config")'
-    #System::Call 'kernel32::SetEnvironmentVariable(t, t) i("FC_CACHEDIR", "$EXEDIR\MiKTeX\texmf-local\fontconfig\cache")'
+
     ;ReadEnvStr $R0 "TEXMFCNF"
     ;MessageBox MB_OK $R0
     

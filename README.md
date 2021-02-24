@@ -70,10 +70,6 @@ tlmgr info pacName
 #安装包
 tlmgr install pacNameS
 ```
- **2021-2-23补充**
-`tlmgr update --self`更新后[遇到了`no appropriate script or program found: fmtutil`的问题](https://github.com/yihui/tinytex/issues/282), 多番折腾后发现是命令行更新的方式更新文件不完整, 需要下载[tlmgr在Windows下的独立更新包](https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet/update-tlmgr-latest.exe)后解压覆盖的方式更新, 覆盖之后再执行一次`tlmgr update --self`即可解决问题。
-
-以体积中等的为基础，补充了
 
 ### LyX更新
 
@@ -100,18 +96,4 @@ tlmgr install pacNameS
 
 有些文档`XeTeX`出错, 这是可以用`pdflatex`作为替补, 把文档的编码换一下即可:
 ![pdfLaTeX文档编码](./manual/images/lyx_pdflatex.png)
-
-**备忘**
-
-Xetex编译错误：`Missing glyphs! Missing character: There is no * in font *`
-
-字体中缺少部分字符所致，修正方法：在文档导言处插入`\setmainfont{Times New Roman}`或者`\setmainfont{SimSun}`都行
-
-pdflatex编译找不到字体错误：`pdflatex.exe (file *): Font * at * not found` [参考](https://tex.stackexchange.com/questions/280631/new-font-file-not-found-with-miktex-installation)
-
-在MikTeX环境下解决办法: `initexmf --admin --mkmaps`
-在TinyTeX/TexLive环境下: 进入`TinyTeX\bin\win32`目录,把`updmap`开头的三个程序挨个双击执行一遍
-
-
-
 

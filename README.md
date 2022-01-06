@@ -8,6 +8,9 @@
 
 我做的改动：更新[LyX](https://mirrors.tuna.tsinghua.edu.cn/lyx/bin/)至2.3.6.1，[MikTex](https://mirrors.tuna.tsinghua.edu.cn/ctan/systems/win32/miktex/setup/)至21.1，[TeXWorks](https://github.com/TeXworks/texworks/releases)至0.6.5，[TinyTex](https://github.com/yihui/tinytex-releases)下载2021.02版
 
+**2022-01-06补充**:
+Lyx似乎停更了, 这个项目后续的部分更新方法在 [#2](https://github.com/lon91ong/LyTex-Portable/issues/2), 自行更新好了!
+
 ![](./manual/images/lyx.png)
 
 简单测试了一下，没发现什么问题，欢迎测试反馈！

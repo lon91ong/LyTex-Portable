@@ -10,6 +10,7 @@ cd %TEXDIR%
 
 set TEXMFCNF=%TEXDIR%
 set TEXMFMAIN=%TEXDIR%
+set TEXMFROOT=%TEXDIR%
 set TEXMFDIST=%TEXDIR%texmf-dist
 set TEXMFLOCAL=%TEXDIR%texmf-local
 set TEXMFVAR=%TEXDIR%texmf-var
